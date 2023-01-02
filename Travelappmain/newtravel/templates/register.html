@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTER</title>
+</head>
+<style>
+    .reg{
+  box-sizing: border-box;
+  background-size: cover;
+  font-family: sans-serif;
+
+  height: 70vh;
+  width: 170vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  padding: 80px 40px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  color: #fff;
+
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  color: white;
+  }
+</style>
+<body>
+<form action="register" method="post" class="reg">
+    <center>
+        {% csrf_token %}  <!-- #when method=post-->
+        <h1 style="color:white"><b>REGISTRATION</b></h1>
+
+        <input type="text" name="username" placeholder="Enter Your Name" required><br><br>
+        <input type="text" name="firstname" placeholder="Enter Your First Name" required><br><br>
+        <input type="text" name="lastname" placeholder="Enter Your Last Name" required><br><br>
+        <input type="email" name="email" placeholder="Enter Your E-mail" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <input type="password" name="password1" placeholder="Confirm Password" required><br><br>
+        <button style="background-color:black; color:white">SUBMIT</button>
+
+    </center>
+
+</form>
+{% for msg in messages %}
+<h1>{{msg}}</h1>
+{% endfor %}
+
+</body>
+</html>
